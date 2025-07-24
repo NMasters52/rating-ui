@@ -1,4 +1,4 @@
-import React from 'react'
+import { Button } from "./Button";
 
 export const Modal = ({
         rating,
@@ -14,12 +14,12 @@ export const Modal = ({
         <p>
             You rated us {rating} star{rating > 1 ? 's' : ''}
         </p>
-        <button
+        <Button
             className="close-btn"
             onClick={closeModal}
         >
             Close
-        </button>
+        </Button>
         </div>
     </div>
   )
