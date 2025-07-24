@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Star } from "./Star";
+import { Modal } from "./Modal";
 
 export const Rating = ({
     feedBackMessages
@@ -14,6 +15,12 @@ export const Rating = ({
 
   const ratingClick = (star) => {
     setRating(star);
+  }
+
+  const closeModal = () => {
+    setModal(false)
+    setHover(0)
+    setRating(0)
   }
 
 
@@ -44,22 +51,12 @@ export const Rating = ({
         Submit
       </button>
 
-      {modal && 
-        <div className="modal-overlay">
-          <div className="modal">
-            <h2>Thank you</h2>
-            <p>
-              You rated us {rating} star{rating > 1 ? 's' : ''}
-            </p>
-            <button
-              className="close-btn"
-              onClick={() => setModal(false)}
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      }
+        <Modal 
+            rating={rating}
+            closeModal={closeModal}
+            isOpen={modal}
+        />
+
      </div>
     </>
   )
