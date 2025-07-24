@@ -2,6 +2,7 @@ import { useState } from "react";
 
 function App() {
   const [rating, setRating] = useState(0);
+  const [hover, setHover] = useState(0);
 
   const stars = Array.from({length: 5}, (_, i) => i + 1);
 
@@ -18,9 +19,12 @@ function App() {
       <div className="stars">
         {stars.map((star, index) => (
            <span 
-            className={`star ${starActive(star)}`}
+            className='star'
             key={star}
             onClick={() => ratingClick(star)}
+            onMouseEnter={() => setHover(star)}
+            onMouseLeave={() => setHover(null)}
+            style={{color: star <= (hover || rating) ? '#FFD700' : '#ccc' }}
           >
             &#9733;
           </span>)
