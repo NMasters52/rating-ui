@@ -16,6 +16,7 @@ function App() {
   return (
     <>
      <div className="rating-container">
+      <h2>Rate your experience</h2>
       <div className="stars">
         {stars.map((star, index) => (
            <span 
@@ -30,7 +31,13 @@ function App() {
           </span>)
           )}
       </div>
-     <h2>Rate your experience</h2>
+      <button
+        className="submit-btn"
+        disabled={rating === 0}
+        onClick={() => console.log('submitted')}
+      >
+        Submit
+      </button>
      </div>
     </>
   )
